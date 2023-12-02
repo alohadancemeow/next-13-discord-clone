@@ -24,10 +24,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-// import { FileUpload } from "@/components/file-upload";
+import { FileUpload } from "@/components/file-upload";
 import { useRouter } from "next/navigation";
 
-const formSchema = z.object({
+export const formSchema = z.object({
   name: z.string().min(1, {
     message: "Server name is required.",
   }),
@@ -35,6 +35,8 @@ const formSchema = z.object({
     message: "Server image is required.",
   }),
 });
+
+export type FormValues = z.infer<typeof formSchema>;
 
 export const InitialModal = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -55,7 +57,7 @@ export const InitialModal = () => {
 
   const isLoading = form.formState.isSubmitting;
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: FormValues) => {
     try {
       await axios.post("/api/servers", values);
 
@@ -93,11 +95,11 @@ export const InitialModal = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        {/* <FileUpload
+                        <FileUpload
                           endpoint="serverImage"
                           value={field.value}
                           onChange={field.onChange}
-                        /> */}
+                        />
                       </FormControl>
                     </FormItem>
                   )}
