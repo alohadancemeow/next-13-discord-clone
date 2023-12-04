@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { ChannelType } from "@prisma/client";
 
 import { currentProfile } from "@/lib/current-profile";
-// import { ChatHeader } from "@/components/chat/chat-header";
+import { ChatHeader } from "@/components/chat/chat-header";
 // import { ChatInput } from "@/components/chat/chat-input";
 // import { ChatMessages } from "@/components/chat/chat-messages";
 // import { MediaRoom } from "@/components/media-room";
@@ -42,12 +42,12 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
 
   return (
     <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
-      {/* <ChatHeader
+      <ChatHeader
         name={channel.name}
         serverId={channel.serverId}
         type="channel"
       />
-      {channel.type === ChannelType.TEXT && (
+      {/* {channel.type === ChannelType.TEXT && (
         <>
           <ChatMessages
             member={member}
@@ -73,14 +73,13 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
             }}
           />
         </>
-      )}
-      {channel.type === ChannelType.AUDIO && (
+      )} */}
+      {/* {channel.type === ChannelType.AUDIO && (
         <MediaRoom chatId={channel.id} video={false} audio={true} />
       )}
       {channel.type === ChannelType.VIDEO && (
         <MediaRoom chatId={channel.id} video={true} audio={true} />
       )} */}
-      channel page
     </div>
   );
 };
