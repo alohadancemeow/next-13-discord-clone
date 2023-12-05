@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 import { getOrCreateConversation } from "@/lib/conversation";
 import { currentProfile } from "@/lib/current-profile";
 import { ChatHeader } from "@/components/chat/chat-header";
-// import { ChatMessages } from "@/components/chat/chat-messages";
+import { ChatMessages } from "@/components/chat/chat-messages";
 import { ChatInput } from "@/components/chat/chat-input";
 // import { MediaRoom } from "@/components/media-room";
 
@@ -67,7 +67,7 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
       )} */}
       {!searchParams.video && (
         <>
-          {/* <ChatMessages
+          <ChatMessages
             member={currentMember}
             name={otherMember.profile.name}
             chatId={conversation.id}
@@ -79,7 +79,7 @@ const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
             socketQuery={{
               conversationId: conversation.id,
             }}
-          /> */}
+          />
           <ChatInput
             name={otherMember.profile.name}
             type="conversation"
